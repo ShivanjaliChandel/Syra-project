@@ -9,6 +9,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  env: {
+    NEXT_PUBLIC_VTEX_ACCOUNT: process.env.NEXT_PUBLIC_VTEX_ACCOUNT,
+    NEXT_PUBLIC_VTEX_ENVIRONMENT: process.env.NEXT_PUBLIC_VTEX_ENVIRONMENT,
+  },
 }
 
 export default nextConfig

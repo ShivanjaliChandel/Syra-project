@@ -107,9 +107,7 @@ body {
     color: #FFFFF0;
 }
 
-.desktop_login_icon {
-    display: flex!important;
-}
+
 
 /* globals.css */
 
@@ -216,6 +214,9 @@ html[dir="rtl"] header .group.relative {
 @media only screen and (min-width:1024px){
 .usericon {
     display: flex;
+}
+.desktop_login_icon {
+    display: flex!important;
 }
 }
 

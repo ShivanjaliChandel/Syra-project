@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const result = await searchProducts(query, page, pageSize, category) // Modified to pass category
+    const result = await searchProducts(query, page, pageSize, category)
     return NextResponse.json(result)
   } catch (error) {
     console.error("API Error:", error)

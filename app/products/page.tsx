@@ -57,7 +57,7 @@ export default function ProductsPage() {
         setTotalProducts(result.recordsFiltered)
 
         // Extract unique brands
-        const brands = [...new Set(result.products.map((p: VtexProduct) => p.brand))]
+        const brands = [...new Set(result.products.map((p: VtexProduct) => p.brand))] as string[]
         setAvailableBrands(brands)
       } catch (error) {
         console.error("Failed to load products:", error)

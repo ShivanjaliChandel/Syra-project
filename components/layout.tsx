@@ -14,6 +14,8 @@ import { LiveSearch } from "@/components/live-search"
 import LanguageToggle from "./language-toggle"
 import { useTranslation } from "@/hooks/use-translation"
 import { useLanguage } from "@/contexts/language-context"
+import { CartDrawer } from "@/components/cart-drawer"
+
 
 interface LayoutProps {
   children: React.ReactNode
@@ -69,7 +71,7 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container flex h-20 items-center">
+        <div className="container flex h-20 items-center ">
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
@@ -200,9 +202,9 @@ export function Layout({ children }: LayoutProps) {
 
             <Button variant="ghost" size="icon" className="relative" onClick={toggleCart}>
               <ShoppingCart className="h-5 w-5" />
-              {cartState.totalItems > 0 && (
+              {cartState?.totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-black text-xs text-white flex items-center justify-center">
-                  {cartState.totalItems > 99 ? "99+" : cartState.totalItems}
+                  {cartState?.totalItems > 99 ? "99+" : cartState.totalItems}
                 </span>
               )}
             </Button>
@@ -276,34 +278,9 @@ export function Layout({ children }: LayoutProps) {
               </ul>
             </div>
             <div>
-              {/* <h4 className="font-medium mb-6 uppercase tracking-wide">Connect</h4>
-              <ul className="space-y-3 text-white/80">
-                <li>
-                  <Link href="/newsletter" className="hover:text-white transition-colors">
-                    Newsletter
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Instagram
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Facebook
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Twitter
-                  </Link>
-                </li>
-              </ul> */}
+    
 
  <h2 className="text-5xl font-light mb-6 tracking-tight">{t("stay_in_the_loop")}</h2>
-          {/* <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
-            Be the first to know about new arrivals, exclusive offers, and style tips from our fashion experts
-          </p> */}
 
 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8 ftrnewslter">
             <input
@@ -324,6 +301,10 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+      
+      {/* Cart Drawer */}
+      <CartDrawer />
+  
     </div>
   )
 }

@@ -21,8 +21,7 @@ export default function WishlistPage() {
       const response = await fetch(`/api/products/${item.linkText}`)
       if (response.ok) {
         const product = await response.json()
-        const firstSku = product.items[0]
-        addItem(product, firstSku, 1)
+        addItem(product.productId, product.items[0].itemId, 1)
       }
     } catch (error) {
       console.error("Failed to add to cart:", error)
